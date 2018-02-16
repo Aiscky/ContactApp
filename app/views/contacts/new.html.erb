@@ -1,0 +1,50 @@
+<%= link_to "Show contacts", contacts_path %>
+
+<% if @contact.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+      <% @contact.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with scope: :contact, url: contacts_path, local: true do |form| %>
+  <p>
+    <%= form.label :firstname, "Prénom" %>
+    <%= form.text_field :firstname %>
+  </p>
+  <p>
+    <%= form.label :lastname, "Nom" %>
+    <%= form.text_field :lastname %>
+  </p>
+  <p>
+    <%= form.label :phone_number, "Numéro tel." %>
+    <%= form.phone_field :phone_number %>
+  </p>
+  <p>
+    <%= form.label :street, "Rue" %>
+    <%= form.text_field :street %>
+  </p>
+  <p>
+    <%= form.label :postal_code, "Code postal" %>
+    <%= form.number_field :postal_code %>
+  </p>
+  <p>
+    <%= form.label :city, "Ville" %>
+    <%= form.text_field :city %>
+  </p>
+  <p>
+    <%= form.label :country, "Pays" %>
+    <%= form.text_field :country %>
+  </p>
+  <p>
+    <%= form.label :picture, "Image" %>
+    <%= form.file_field :picture, accept: 'image/png,image/gif,image/jpeg' %>
+  </p>
+  <div style="clear:both;"></div>
+  <P>
+    <%= form.submit %>
+  </p>
+<% end %>

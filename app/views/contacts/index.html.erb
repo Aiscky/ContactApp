@@ -1,0 +1,11 @@
+<h1>Contacts</h1>
+<div id="contact_table">
+  <% @contacts.each do |contact| %>
+    <%= link_to contact do %>
+      <div>
+        <span><%= contact.firstname %></span>
+        <span><%= contact.lastname %></span>
+      </div>
+    <% end %>
+  <% end %>
+</div>
